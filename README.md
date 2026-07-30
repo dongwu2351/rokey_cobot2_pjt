@@ -1,1 +1,1 @@
-# rokey_cobot1_pjt
+# rokey_cobot2_pjt
