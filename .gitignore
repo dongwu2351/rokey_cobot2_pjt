@@ -1,0 +1,30 @@
+# --- SECRETS: never commit. resource/.env holds a real OpenAI API key. ---
+.env
+*.env
+!.env.example
+
+# --- colcon build artifacts ---
+build/
+install/
+log/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# --- Separate fruit-detection experiment (221MB of datasets + weights) ---
+# Not part of the pick-and-place work; give it its own repo if it needs one.
+fruits/
+yolo26n.pt
+
+# --- Training / dataset leftovers ---
+runs/
+*.cache
+datasets/
+
+# --- Editor / OS ---
+.vscode/
+.idea/
+*.swp
+.DS_Store
