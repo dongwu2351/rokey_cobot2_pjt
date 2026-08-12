@@ -1,0 +1,11 @@
+{
+  "accepted_pose_count": 0,
+  "base_frame": "base_link",
+  "camera": "cam0",
+  "complete": false,
+  "flange_frame": "link_6",
+  "gripper_command_sent_by_capture_tool": false,
+  "observations": [],
+  "robot_command_sent": false,
+  "target_pose_count": 1
+}

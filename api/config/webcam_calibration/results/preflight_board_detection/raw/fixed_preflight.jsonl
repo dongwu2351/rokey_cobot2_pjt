@@ -1,0 +1,3 @@
+{"accepted": false, "observation": {"corner_count": 0, "frame_index": 0, "image_path": "data/calibration/prompt04/preflight/usb_5_1.jpg"}, "reason": "insufficient_charuco_corners", "recorded_at": "2026-08-07T04:03:39.990644+00:00"}
+{"accepted": false, "observation": {"corner_count": 0, "frame_index": 1, "image_path": "data/calibration/prompt04/preflight/usb_5_2.jpg"}, "reason": "insufficient_charuco_corners", "recorded_at": "2026-08-07T04:03:39.999386+00:00"}
+{"accepted": false, "observation": {"corner_count": 0, "frame_index": 2, "image_path": "data/calibration/prompt04/preflight/usb_5_3.jpg"}, "reason": "insufficient_charuco_corners", "recorded_at": "2026-08-07T04:03:40.004747+00:00"}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>JARVIS · DUM-E Interface</title>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <canvas id="field"></canvas><div class="scanlines"></div><div class="vignette"></div>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark"></span><b>JARVIS</b><small>DUM-E UNIVERSAL ASSISTANT</small></div>
+    <div class="telemetry"><span id="clock"></span><span class="online-dot"></span><span>LOCAL SYSTEM</span></div>
+  </header>
+
+  <main id="app" class="dormant">
+    <section class="assistant-stage">
+      <div class="orb-wrap">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div>
+        <div class="holo-face" id="face">
+          <div class="face-grid"></div><div class="brow left"></div><div class="brow right"></div>
+          <div class="eye left"><i></i></div><div class="eye right"><i></i></div>
+          <div class="nose"></div><div class="mouth"><i></i></div>
+          <div class="cheek left"></div><div class="cheek right"></div>
+        </div>
+        <div class="core-glow"></div>
+      </div>
+      <div class="assistant-copy">
+        <p class="eyebrow" id="modeLabel">NEURAL INTERFACE · DORMANT</p>
+        <h1 id="heroTitle">대기 모드</h1>
+        <p id="status">JARVIS라고 입력하면 깨어납니다</p>
+        <p class="heard" id="heard"></p>
+        <div class="wave" id="wave"></div>
+      </div>
+    </section>
+
+    <section class="work-panel glass" id="workPanel">
+      <div class="panel-head"><div><small>LIVE VISUAL FEED</small><h2 id="product">작업 코파일럿</h2></div><span class="chip">RGB-D ONLINE</span></div>
+      <div class="camera-shell"><img id="camera" alt="RealSense feed"><div class="reticle"><i></i></div><div class="corners"></div><span class="camera-label">WRIST OPTICS · LIVE</span></div>
+      <div class="step-grid"><div class="step-number"><span id="stepNo">—</span><small id="stepTotal">STEP</small></div><div><h3 id="stepTitle">작업 대기</h3><p id="instruction">작업을 시작하면 현재 단계가 표시됩니다.</p></div></div>
+      <figure class="reference" id="referencePanel" hidden>
+        <figcaption><small>REFERENCE</small><span id="referenceLabel"></span></figcaption>
+        <img id="referenceImg" alt="단계 참고 사진">
+      </figure>
+    </section>
+
+    <section class="dialogue glass">
+      <div class="dialogue-head"><span>CONVERSATION LINK</span><button id="sleepBtn">대기 모드</button></div>
+      <div id="turns" class="turns"><p class="system-note">시스템 준비 완료 · JARVIS로 깨워 주세요</p></div>
+      <form id="inputForm"><span class="prompt">›</span><input id="textInput" autocomplete="off" placeholder="JARVIS라고 입력해 깨우기"><button>전송</button></form>
+      <div class="hints"><span>TEXT FALLBACK ACTIVE</span><span id="apiState">API OFFLINE</span><a href="/debug" target="_blank">DIAGNOSTICS ↗</a></div>
+    </section>
+  </main>
+  <script src="/assets/app.js"></script>
+</body></html>

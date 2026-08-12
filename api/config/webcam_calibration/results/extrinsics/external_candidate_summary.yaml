@@ -1,0 +1,56 @@
+schema_version: 1
+recorded_at: "2026-08-07"
+status: PENDING_STATIC_3D_VALIDATION
+transform_convention: T_A_B_maps_B_points_into_A
+units:
+  translation: m
+  rotation: rad
+  reprojection: px
+board_mount:
+  method: rigid_board_handle_clamped_by_rg2
+  regripped_between_camera_runs: false
+  observed_width_m: 0.0472
+camera_candidates:
+  cam0:
+    capture: cam0_run4/capture_report.json
+    solution: cam0_run4/solution.json
+    accepted_poses: 18
+    rejected_rotation_outliers: 0
+    rotation_spread_deg: 176.6488480162358
+    mean_reprojection_px: 1.318642096210929
+    p95_reprojection_px: 2.668417754256336
+    spatial_error_proxy_m: 0.0010346458045994842
+  cam1:
+    capture: cam1_run1/capture_report.json
+    solution: cam1_run1/solution.json
+    accepted_poses: 18
+    rejected_rotation_outliers: 0
+    rotation_spread_deg: 171.41077945136894
+    mean_reprojection_px: 2.057780557379025
+    p95_reprojection_px: 4.206425151986875
+    spatial_error_proxy_m: 0.0014250088695155956
+  cam2:
+    capture: cam2_run1/capture_report.json
+    solution: cam2_run1/solution.json
+    accepted_poses: 18
+    rejected_rotation_outliers: 0
+    rotation_spread_deg: 96.46571960730212
+    mean_reprojection_px: 1.2917890955598914
+    p95_reprojection_px: 2.6407436764170984
+    spatial_error_proxy_m: 0.0009156272001061327
+shared_board_transform_disagreement:
+  cam0_cam1:
+    translation_m: 0.002383
+    rotation_deg: 0.417
+  cam0_cam2:
+    translation_m: 0.005172
+    rotation_deg: 3.860
+  cam1_cam2:
+    translation_m: 0.002916
+    rotation_deg: 3.444
+decisions:
+  - Independent camera solutions remain candidates; they are not runtime calibration.
+  - The shared-board joint diagnostic increased every camera's reprojection error and was not adopted.
+  - CAM2 rotation disagreement requires independent static 3D and known-target validation.
+  - The failed CAM0 TF-timestamp runs and failed diagnostic local minima remain audit-only artifacts.
+  - Calibration manifest remains invalid and G1 remains open.

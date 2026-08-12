@@ -1,0 +1,215 @@
+inventory_date: 2026-08-07
+method: read_only_sysfs_v4l2_realsense_ros_graph_and_prompt11_recheck
+robot_motion_performed: false
+
+camera_system:
+  active_camera_count: 4
+  fixed_rgb_count: 3
+  wrist_depth_count: 1
+  spare_depth_count: 1
+  spare_depth_runtime_required: false
+  primary_avoidance_sensors: [cam0, cam1, cam2]
+  near_field_sensor: wrist_depth
+
+operator_reference:
+  front_definition: operator_standing_side
+  right_definition: operator_right_while_facing_workspace
+  rear_definition: opposite_operator
+  left_definition: operator_left_while_facing_workspace
+
+camera_layout:
+  version: operator_layout_v2
+  cam0_role: front_center_upper
+  cam1_role: front_right_upper
+  cam2_role: rear_left_upper
+  exact_120_degree_spacing_required: false
+  common_workspace_overlap_required: true
+  two_camera_visibility_required_in_critical_regions: true
+  physical_mount_validation_complete: true
+
+usb_topology:
+  version: fixed_rgb_direct_root_ports_wrist_usb3_v3
+  fixed_rgb_connection: direct_pc_root_ports_1_5_1_1_1_8
+  wrist_depth_connection: separate_pc_usb3_bus_002_port_2
+  spare_depth_connection: disconnected
+  benchmark_required: false
+  observed_topology_matches_intended: true
+
+runtime_profiles:
+  avoidance:
+    fixed_rgb_enabled: true
+    wrist_depth_required: false
+  near_field_grasp:
+    fixed_rgb_enabled: true
+    wrist_depth_required: true
+  calibration:
+    activate_only_procedure_required_cameras: true
+  spare_camera:
+    enabled: false
+
+spare_depth:
+  role: spare_unconnected
+  required: false
+  runtime_enabled: false
+  calibration_required: false
+
+robot:
+  model: Doosan M0609
+  namespace: dsr01
+  serial: not_queried
+  joint_state:
+    topic: /dsr01/joint_states
+    type: sensor_msgs/msg/JointState
+    position_unit: rad
+    observed_name_order: [joint_1, joint_2, joint_4, joint_5, joint_3, joint_6]
+    qos: {reliability: reliable, durability: transient_local}
+  servoj:
+    topic: /dsr01/servoj_stream
+    type: dsr_msgs2/msg/ServojStream
+    position_unit: deg
+    subscription_qos: {reliability: reliable, durability: volatile}
+    legacy_verified_rate_hz: 50.0
+    current_hardware_publish_test_performed: true
+    selected_hardware_rate_hz: 50.0
+
+gripper:
+  model: OnRobot RG2
+  description_asset_found: false
+  tcp_transform_status: physically_verified_by_operator_measurement
+  legacy_candidate_tcp_z_m: 0.23813
+  candidate_promoted_to_runtime_config: true
+
+stream_profile_catalog:
+  c270_v4l2_observed:
+    applies_to_inventory_ids:
+      [fixed_c270_usb_1_5, fixed_c270_usb_1_1, fixed_c270_usb_1_8]
+    formats:
+      YUYV:
+        "30/25/20/15/10/5":
+          ["640x480", "160x120", "176x144", "320x176", "320x240", "352x288", "432x240", "544x288", "640x360"]
+        "25/20/15/10/5": ["752x416"]
+        "20/15/10/5": ["800x448", "800x600", "864x480"]
+        "15/10/5": ["960x544"]
+        "10/5": ["960x720", "1024x576", "1184x656"]
+        "7.5/5": ["1280x720", "1280x960"]
+      MJPG:
+        "30/25/20/15/10/5":
+          ["640x480", "160x120", "176x144", "320x176", "320x240", "352x288", "432x240", "544x288", "640x360", "752x416", "800x448", "800x600", "864x480", "960x544", "960x720", "1024x576", "1184x656", "1280x720", "1280x960"]
+  d435i_realsense_observed:
+    applies_to_inventory_ids: [depth_d435i_207122078284]
+    infrared_1_and_2_y8:
+      - "1280x720@6"
+      - "848x480@10/8/6"
+      - "640x480@30/15/6"
+      - "640x360@30"
+      - "480x270@60/30/15/6"
+    depth_z16:
+      - "1280x720@6"
+      - "848x480@10/8/6"
+      - "640x480@30/15/6"
+      - "640x360@30"
+      - "480x270@60/30/15/6"
+      - "256x144@90"
+    color_rgb8_bgra8_rgba8_bgr8_yuyv:
+      - "1920x1080@8"
+      - "1280x720@15/10/6"
+      - "640x480@30/15/6"
+      - "424x240@60/30/15/6"
+    imu:
+      - "accel MOTION_XYZ32F@400/200/100"
+      - "gyro MOTION_XYZ32F@400/200"
+
+cameras:
+  - inventory_id: fixed_c270_usb_1_5
+    role: fixed_external_candidate
+    physical_role: cam0_operator_front_center_upper
+    model: Logitech Webcam C270
+    vendor_product_id: "046d:0825"
+    serial: "200901010001"
+    serial_is_unique: false
+    device_path: /dev/video0
+    metadata_device_path: /dev/video1
+    stable_device_path: /dev/v4l/by-path/pci-0000:00:14.0-usb-0:5:1.0-video-index0
+    usb_port: "1-5"
+    usb_bus: "001"
+    usb_speed_mbps: 480
+    supported_streams:
+      - {format: MJPG, resolution: "1280x720", fps: 30}
+      - {format: YUYV, resolution: "1280x720", fps: 7.5}
+      - {format: MJPG, resolution: "640x480", fps: 30}
+    controls: {focus: fixed, exposure: manual_and_auto, white_balance: manual_and_auto}
+  - inventory_id: fixed_c270_usb_1_1
+    role: fixed_external_candidate
+    physical_role: cam1_operator_front_right_upper
+    model: Logitech Webcam C270
+    vendor_product_id: "046d:0825"
+    serial: "200901010001"
+    serial_is_unique: false
+    device_path: /dev/video2
+    metadata_device_path: /dev/video3
+    stable_device_path: /dev/v4l/by-path/pci-0000:00:14.0-usb-0:1:1.0-video-index0
+    usb_port: "1-1"
+    usb_bus: "001"
+    usb_speed_mbps: 480
+    supported_streams:
+      - {format: MJPG, resolution: "1280x720", fps: 30}
+      - {format: YUYV, resolution: "1280x720", fps: 7.5}
+      - {format: MJPG, resolution: "640x480", fps: 30}
+    controls: {focus: fixed, exposure: manual_and_auto, white_balance: manual_and_auto}
+  - inventory_id: fixed_c270_usb_1_8
+    role: fixed_external_candidate
+    physical_role: cam2_operator_rear_left_upper
+    model: Logitech Webcam C270
+    vendor_product_id: "046d:0825"
+    serial: "200901010001"
+    serial_is_unique: false
+    device_path: /dev/video4
+    metadata_device_path: /dev/video5
+    stable_device_path: /dev/v4l/by-path/pci-0000:00:14.0-usb-0:8:1.0-video-index0
+    usb_port: "1-8"
+    usb_bus: "001"
+    usb_speed_mbps: 480
+    supported_streams:
+      - {format: MJPG, resolution: "1280x720", fps: 30}
+      - {format: YUYV, resolution: "1280x720", fps: 7.5}
+      - {format: MJPG, resolution: "640x480", fps: 30}
+    controls: {focus: fixed, exposure: manual_and_auto, white_balance: manual_and_auto}
+  - inventory_id: depth_d435i_207122078284
+    role: wrist_depth
+    physical_role: gripper_or_wrist_mounted
+    model: Intel RealSense D435I
+    vendor_product_id: "8086:0b3a"
+    serial: "207122078284"
+    serial_is_unique: true
+    firmware: 5.17.3.10
+    device_paths: [/dev/video8, /dev/video9, /dev/video10, /dev/video11, /dev/video12, /dev/video13]
+    stable_device_key: "realsense://207122078284"
+    usb_port_sysfs: "2-2"
+    usb_port_realsense_sdk: "2-2"
+    usb_port_discrepancy_requires_recheck: false
+    usb_bus: "002"
+    usb_speed_mbps: 5000
+    usb_descriptor: "3.x"
+    supported_stream_profile: d435i_realsense_observed
+    hardware_sync_support: to_be_benchmarked
+    mount_transform_status: calibrated_and_independent_holdout_accepted
+  - inventory_id: internal_laptop_webcam
+    role: excluded_internal_camera
+    physical_role: not_a_fixed_external_candidate
+    model: Acer/Sunplus HD User Facing
+    vendor_product_id: "5986:211b"
+    serial: unknown
+    serial_is_unique: false
+    device_path: /dev/video6
+    metadata_device_path: /dev/video7
+    usb_port: "1-6"
+    usb_bus: "001"
+
+missing_expected_devices:
+  required_runtime_camera: false
+
+topology_risks:
+  - The three fixed C270 cameras share USB bus 001 but use separate root ports and MJPG profiles.
+  - The three C270 cameras report the same serial; by-id cannot distinguish them.
+  - Stable by-path mapping and physical role labels must both be rechecked after any rewiring.
+  - Production perception still requires independent capture/decode workers.

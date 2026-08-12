@@ -1,0 +1,26 @@
+{
+  "board_id": "existing_a4_charuco_5x7_2026_08_07",
+  "condition": "usable_undamaged",
+  "dictionary": "DICT_4X4_50",
+  "flatness_verified": true,
+  "marker_length_m": 0.025,
+  "measured_print_scale": 0.955,
+  "measured_reference_length_m": 0.0955,
+  "measurement_method": "direct_physical_measurement_reported_by_user",
+  "measurement_notes": [
+    "Physical measurements override nominal filename dimensions.",
+    "The measured 34 mm square and 25 mm marker are consistent with the 95.5 mm print-scale reference within manual measurement resolution.",
+    "Verify zero flex and no slip after the RG2 grips the board handle before every pose capture."
+  ],
+  "mounting_method": "rigid_board_handle_clamped_by_rg2",
+  "nominal_marker_length_m": 0.026,
+  "nominal_reference_length_m": 0.1,
+  "nominal_square_length_m": 0.035,
+  "print_scale_verified": true,
+  "source_path": "vendor/legacy_imports/calibration/charuco_board/charuco_a4_5x7_35mm.png",
+  "source_sha256": "be4bf9a3db76dfae60eb5127e3d4445c76255c0fcb5cb2f266281bea03142c39",
+  "square_length_m": 0.034,
+  "squares_x": 5,
+  "squares_y": 7,
+  "valid": true
+}

@@ -1,0 +1,17 @@
+run: initial_cam0_eye_to_hand
+valid: false
+reason: image_tf_unsynchronized
+evidence:
+  accepted_pose_count: 15
+  gripper_width_m: 0.0472
+  gripper_width_drift_m: 0.0
+  mean_reprojection_px: 0.21464656591415404
+  translation_rms_m: 0.30060281228608716
+  rotation_rms_deg: 46.51814294388338
+diagnosis:
+  - Relative robot and observed-board rotation angles disagreed for multiple consecutive pairs.
+  - Several observed-board transitions matched a later robot transition, indicating buffered-image versus latest-TF mismatch.
+disposition:
+  - Do not publish or consume solution.json.
+  - Preserve raw images and observations for audit.
+  - Repeat with one-frame V4L buffering, robot/image stability gates and relative-rotation synchronization gate.

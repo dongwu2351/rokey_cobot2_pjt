@@ -1,0 +1,76 @@
+{
+  "active_devices": {
+    "cam0": {
+      "crop_policy": "none",
+      "exposure_mode": "auto_aperture_priority",
+      "focus_mode": "fixed",
+      "fps": 30,
+      "model": "Logitech Webcam C270",
+      "pixel_format": "MJPG",
+      "resize_policy": "none",
+      "resolution": "1280x720",
+      "role": "operator_front_center_upper",
+      "serial": "200901010001",
+      "stable_key": "/dev/v4l/by-path/pci-0000:00:14.0-usb-0:5.1:1.0-video-index0"
+    },
+    "cam1": {
+      "crop_policy": "none",
+      "exposure_mode": "auto_aperture_priority",
+      "focus_mode": "fixed",
+      "fps": 30,
+      "model": "Logitech Webcam C270",
+      "pixel_format": "MJPG",
+      "resize_policy": "none",
+      "resolution": "1280x720",
+      "role": "operator_front_right_upper",
+      "serial": "200901010001",
+      "stable_key": "/dev/v4l/by-path/pci-0000:00:14.0-usb-0:5.2:1.0-video-index0"
+    },
+    "cam2": {
+      "crop_policy": "none",
+      "exposure_mode": "auto_aperture_priority",
+      "focus_mode": "fixed",
+      "fps": 30,
+      "model": "Logitech Webcam C270",
+      "pixel_format": "MJPG",
+      "resize_policy": "none",
+      "resolution": "1280x720",
+      "role": "operator_rear_left_upper",
+      "serial": "200901010001",
+      "stable_key": "/dev/v4l/by-path/pci-0000:00:14.0-usb-0:5.3:1.0-video-index0"
+    },
+    "wrist_depth": {
+      "alignment": "depth_to_color",
+      "crop_policy": "none",
+      "exposure_mode": "device_auto",
+      "focus_mode": "factory_fixed_geometry",
+      "fps": 30,
+      "model": "Intel RealSense D435I",
+      "pixel_format": "RGB8+Z16",
+      "resize_policy": "none",
+      "resolution": "640x480",
+      "role": "wrist_depth",
+      "serial": "207122078284",
+      "stable_key": "realsense://207122078284"
+    }
+  },
+  "layout_version": "operator_layout_v2",
+  "runtime_profiles": {
+    "avoidance": [
+      "cam0",
+      "cam1",
+      "cam2"
+    ],
+    "near_field_grasp": [
+      "cam0",
+      "cam1",
+      "cam2",
+      "wrist_depth"
+    ]
+  },
+  "spare_depth": {
+    "calibration_required": false,
+    "required": false,
+    "runtime_enabled": false
+  }
+}

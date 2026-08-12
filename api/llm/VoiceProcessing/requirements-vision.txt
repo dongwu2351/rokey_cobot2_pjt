@@ -1,0 +1,12 @@
+# Optional zero-shot webcam grounding stack. Install after the NVIDIA driver and
+# a matching PyTorch CUDA build are working; CPU inference is supported but slow.
+torch==2.12.1
+torchvision==0.27.1
+transformers>=4.45,<6
+Pillow>=10,<12
+ultralytics>=8.4.115,<9
+# YOLOE text-prompt embeddings (Ultralytics imports the OpenAI CLIP tokenizer).
+clip @ git+https://github.com/openai/CLIP.git
+# OpenCV 4.12+ requires NumPy 2 on Python 3.10, while the wake-word
+# tflite runtime still requires NumPy 1.x.
+opencv-python>=4.9,<4.12

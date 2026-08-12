@@ -1,0 +1,17 @@
+{
+  "accepted": [],
+  "rejected": [
+    {
+      "image_path": "data/calibration/prompt04/preflight/usb_5_1.jpg",
+      "reason": "insufficient_charuco_corners"
+    },
+    {
+      "image_path": "data/calibration/prompt04/preflight/usb_5_2.jpg",
+      "reason": "insufficient_charuco_corners"
+    },
+    {
+      "image_path": "data/calibration/prompt04/preflight/usb_5_3.jpg",
+      "reason": "insufficient_charuco_corners"
+    }
+  ]
+}

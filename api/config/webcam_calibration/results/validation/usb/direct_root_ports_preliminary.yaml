@@ -1,0 +1,57 @@
+schema_version: 1
+recorded_at: "2026-08-07"
+status: PRELIMINARY_NOT_QUALIFIED
+duration_s: 20
+production_profiles:
+  fixed_rgb: 1280x720_MJPG_30fps
+  wrist_depth: 640x480_RGB8_Z16_30fps_aligned_depth_to_color
+topology:
+  host_controller: "0000:00:14.0 Intel Alder Lake PCH USB 3.2 xHCI"
+  cam0: {role: operator_front_center_upper, usb_path: "1-5", speed_mbps: 480}
+  cam1: {role: operator_front_right_upper, usb_path: "1-1", speed_mbps: 480}
+  cam2: {role: operator_rear_left_upper, usb_path: "1-8", speed_mbps: 480}
+  wrist_depth: {serial: "207122078284", usb_path: "2-2", speed_mbps: 5000}
+measurements:
+  cam0:
+    frames: 588
+    delivered_fps: 29.325510128021367
+    read_failures: 0
+    interval_mean_ms: 33.61393596425262
+    interval_p95_ms: 36.09807798056863
+    interval_max_ms: 67.88870898890309
+  cam1:
+    frames: 564
+    delivered_fps: 28.12855053095927
+    read_failures: 0
+    interval_mean_ms: 34.69211369980132
+    interval_p95_ms: 36.439135001273826
+    interval_max_ms: 68.0341889965348
+  cam2:
+    frames: 580
+    delivered_fps: 28.926523595667334
+    read_failures: 0
+    interval_mean_ms: 33.33048005183211
+    interval_p95_ms: 36.07233599177562
+    interval_max_ms: 37.99059399170801
+  wrist_depth:
+    aligned_framesets: 587
+    delivered_fps: 29.3058
+    color_sequence_drops: 0
+    depth_sequence_drops: 0
+    interval_mean_ms: 33.263
+    interval_p95_ms: 33.7086
+    interval_max_ms: 35.4974
+acceptance:
+  minimum_fps_fraction: 0.95
+  minimum_delivered_fps: 28.5
+  simultaneous_streaming_succeeded: true
+  qualified: false
+  reasons:
+    - cam1_delivered_fps_below_95_percent
+    - benchmark_duration_not_yet_final
+    - inter_camera_timestamp_skew_not_yet_measured
+notes:
+  - All four production streams ran concurrently; no fixed-camera read failure was observed.
+  - The D435 measurement used the installed librealsense C++ API and included depth-to-color alignment.
+  - Earlier external-hub failures are historical and do not describe this direct-root-port topology.
+  - The initial ROS topic-hz result was rejected as a device-rate measurement because image deserialization distorted the rates.

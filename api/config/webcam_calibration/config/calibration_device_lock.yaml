@@ -1,0 +1,50 @@
+devices:
+  cam0:
+    stable_key: /dev/v4l/by-path/pci-0000:00:14.0-usb-0:5:1.0-video-index0
+    model: Logitech Webcam C270
+    serial: "200901010001"
+    role: operator_front_center_upper
+    resolution: 1280x720
+    fps: 30
+    pixel_format: MJPG
+    crop_policy: none
+    resize_policy: none
+    focus_mode: fixed
+    exposure_mode: auto_aperture_priority
+  cam1:
+    stable_key: /dev/v4l/by-path/pci-0000:00:14.0-usb-0:1:1.0-video-index0
+    model: Logitech Webcam C270
+    serial: "200901010001"
+    role: operator_front_right_upper
+    resolution: 1280x720
+    fps: 30
+    pixel_format: MJPG
+    crop_policy: none
+    resize_policy: none
+    focus_mode: fixed
+    exposure_mode: auto_aperture_priority
+  cam2:
+    stable_key: /dev/v4l/by-path/pci-0000:00:14.0-usb-0:8:1.0-video-index0
+    model: Logitech Webcam C270
+    serial: "200901010001"
+    role: operator_rear_left_upper
+    resolution: 1280x720
+    fps: 30
+    pixel_format: MJPG
+    crop_policy: none
+    resize_policy: none
+    focus_mode: fixed
+    exposure_mode: auto_aperture_priority
+  wrist_depth:
+    stable_key: realsense://207122078284
+    model: Intel RealSense D435I
+    serial: "207122078284"
+    role: wrist_depth
+    resolution: 640x480
+    fps: 30
+    pixel_format: RGB8+Z16
+    alignment: depth_to_color
+    crop_policy: none
+    resize_policy: none
+    focus_mode: factory_fixed_geometry
+    exposure_mode: device_auto

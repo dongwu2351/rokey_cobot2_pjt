@@ -1,0 +1,37 @@
+source_command: rs-enumerate-devices -c
+observed_at: "2026-08-07T12:52:46+09:00"
+model: Intel RealSense D435I
+serial: "207122078284"
+firmware: 5.17.3.10
+profile_status: pending_production_confirmation
+color_640x480:
+  format: [YUYV, RGB8, BGR8, RGBA8, BGRA8]
+  maximum_fps: 30
+  camera_matrix:
+    - [606.248474121094, 0.0, 327.7080078125]
+    - [0.0, 605.785461425781, 246.199691772461]
+    - [0.0, 0.0, 1.0]
+  distortion_model: inverse_brown_conrady
+  distortion_coefficients: [0.0, 0.0, 0.0, 0.0, 0.0]
+depth_640x480:
+  format: Z16
+  maximum_fps: 30
+  camera_matrix:
+    - [385.115539550781, 0.0, 316.702026367188]
+    - [0.0, 385.115539550781, 233.787872314453]
+    - [0.0, 0.0, 1.0]
+  distortion_model: brown_conrady
+  distortion_coefficients: [0.0, 0.0, 0.0, 0.0, 0.0]
+T_depth_color:
+  convention: T_A_B transforms points from B into A
+  rotation_matrix:
+    - [0.999771, -0.0213846, -0.000615477]
+    - [0.0213846, 0.999771, 0.0000343288]
+    - [0.000614602, -0.0000474826, 1.0]
+  translation_m: [-0.0146704725921154, -0.000204325886443257, -0.00052058242727071]
+valid_for_runtime: false
+validation_required:
+  - confirm_640x480_color_and_depth_production_profile
+  - confirm_no_geometric_crop_or_resize
+  - verify_ros_camera_info_matches_factory_query
+  - validate_imported_T_tcp_camera_with_known_targets

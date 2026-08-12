@@ -1,0 +1,82 @@
+schema_version: 1
+calibration_id: prompt04_2026_08_07_direct_root_v3
+created_at: "2026-08-07T15:39:21+09:00"
+transform_convention: T_A_B_maps_B_points_into_A
+units: {translation: m, rotation: rad, reported_distance: mm, reported_angle: deg}
+production_transform_file: transforms/production_transforms.yaml
+fixed_cameras:
+  cam0:
+    transform_file: extrinsics/cam0_run4/solution.json
+    transform_sha256: 9cd9ff5367d60cfd27f25cca7e3e53079ad3ae0865f327301227d9ca9bb50e3a
+    solver: direct_corner_reprojection
+    calibration_poses: 18
+    holdout_poses: 3
+    holdout_translation_rms_mm: 14.584752787994061
+    holdout_translation_p95_mm: 15.633410848065063
+    holdout_rotation_rms_deg: 1.2815901833681487
+    holdout_mean_pose_reprojection_px: 0.2290587176879247
+    accepted: true
+  cam1:
+    transform_file: extrinsics/cam1_run1/solution.json
+    transform_sha256: eb748cbcbe2b8b4ec24f42d44c50a9615c03afa5ef64907acd3a5c5c6dbc6e27
+    solver: direct_corner_reprojection
+    calibration_poses: 18
+    holdout_poses: 3
+    holdout_translation_rms_mm: 9.383423503677387
+    holdout_translation_p95_mm: 14.25348813101615
+    holdout_rotation_rms_deg: 1.0549249049897995
+    holdout_mean_pose_reprojection_px: 0.21320528288682303
+    accepted: true
+  cam2:
+    transform_file: extrinsics/cam2_run2/solution_transform_residual.json
+    transform_sha256: 053646caa8e1925889519dc1f6ff12d781a617ab0601b86bd67e7a4694d9b4e1
+    solver: robust_transform_residual
+    calibration_poses: 22
+    rotation_spread_deg: 157.41345352889005
+    independent_holdout_poses: 8
+    holdout_translation_rms_mm: 5.251615475244761
+    holdout_translation_p95_mm: 8.258414183652809
+    holdout_rotation_rms_deg: 1.3876955105189082
+    predicted_holdout_mean_reprojection_px: 2.9838415267976934
+    accepted: true
+    decision_note: Direct-reprojection solution was rejected because its independent 3D holdout RMS was 19.59 mm.
+fixed_acceptance_limits: {translation_rms_mm: 15.0, translation_p95_mm: 25.0}
+wrist_depth:
+  imported_candidate_classification: INVALIDATED
+  imported_candidate_reason: T_tcp_camera could not be chained to flange without verified T_flange_tcp
+  replacement_transform_file: wrist_validation/recalibration_run2/solution.json
+  replacement_transform_sha256: 60008050b918628715676fb04244a8b712feb466d037245399befaeefe4b590b
+  transform_name: T_flange_wrist_depth
+  calibration_poses: 18
+  independent_holdout_poses: 5
+  holdout_translation_rms_mm: 1.9666900627012591
+  holdout_translation_p95_mm: 2.783505537483842
+  holdout_rotation_rms_deg: 0.7010594014338938
+  holdout_mean_reprojection_px: 0.1424410343170166
+  accepted: true
+  acceptance_limits: {translation_rms_mm: 5.0, rotation_rms_deg: 1.0, mean_reprojection_px: 0.8, target_position_p95_mm: 10.0}
+usb_and_timing:
+  topology: fixed_rgb_direct_root_ports_wrist_usb3_v3
+  fixed_source_fps: {cam0: 29.912596194321186, cam1: 29.901028595383803, cam2: 29.900962810936853}
+  wrist_source_fps: {color: 29.978354424984627, depth: 29.47236192294642}
+  overlapping_samples: 279
+  raw_source_skew_p95_ms: 15.878999987035058
+  phase_offsets_from_cam0_ms: {cam0: 0.0, cam1: -11.892999988049269, cam2: -3.5229999921284616, wrist_color: -9.375000023283064}
+  corrected_source_skew_p95_ms: 5.140000025858169
+  corrected_source_skew_max_ms: 6.181000004289672
+  samples_over_25ms: 0
+  wrist_color_depth_skew_p95_ms: 0.7791000083670951
+  accepted: true
+known_geometry_validation:
+  target: measured_charuco_board_and_robot_fk
+  square_length_m: 0.034
+  marker_length_m: 0.025
+  static_geometry: accepted_independent_holdout
+  dynamic_timing: accepted_four_camera_source_timestamp_benchmark
+  dynamic_moving_target_geometry: deferred_to_later_perception_qualification_no_G1_threshold_defined
+  accepted: true
+warnings:
+  - A single-process OpenCV MJPEG decode benchmark failed the later end-to-end performance target; use independent capture/decode workers.
+  - Moving-target trajectory geometry was not used to authorize G1; only static independent geometry and dynamic source timing were accepted.
+  - Camera movement, role change, focus/geometric profile change, robot-base movement or wrist-mount change invalidates the affected geometry.
+overall_calibration_valid: true

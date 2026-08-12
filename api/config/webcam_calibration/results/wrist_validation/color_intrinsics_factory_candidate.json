@@ -1,0 +1,16 @@
+{
+  "camera_matrix": [
+    [606.248474121094, 0.0, 327.7080078125],
+    [0.0, 605.785461425781, 246.199691772461],
+    [0.0, 0.0, 1.0]
+  ],
+  "distortion": [0.0, 0.0, 0.0, 0.0, 0.0],
+  "distortion_model": "inverse_brown_conrady",
+  "image_size": [640, 480],
+  "model": "Intel RealSense D435I",
+  "serial": "207122078284",
+  "source": "data/calibration/prompt04/preflight/d435i_factory_intrinsics_candidate.yaml",
+  "valid_for_runtime": true,
+  "validation": "accepted_with_direct_handeye_and_independent_fixed_target_holdout",
+  "validation_report": "data/calibration/prompt04/final_validation_summary.yaml"
+}

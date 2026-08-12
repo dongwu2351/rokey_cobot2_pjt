@@ -1,0 +1,20 @@
+schema_version: 1
+recorded_at: "2026-08-07"
+status: TRANSPORT_PASS_PROCESSING_NOT_EVALUATED
+method: three_independent_v4l2_mmap_processes_with_concurrent_d435_alignment
+fixed_profile: 1280x720_MJPG_30fps
+requested_frames_per_camera: 600
+streams:
+  cam0: {dequeued_frames: 600, final_v4l2_sequence: 600, startup_sequence_gaps: 1, steady_state_fps: 30.0}
+  cam1: {dequeued_frames: 600, final_v4l2_sequence: 600, startup_sequence_gaps: 1, steady_state_fps: 30.0}
+  cam2: {dequeued_frames: 600, final_v4l2_sequence: 600, startup_sequence_gaps: 1, steady_state_fps: 30.0}
+decision:
+  usb_transport_capacity_sufficient: true
+  production_pipeline_qualified: false
+  reasons:
+    - V4L2 transport test does not include MJPEG decode or perception conversion.
+    - Startup sequence gaps require an explicit warm-up policy.
+    - Production multi-process decoding and timestamp-skew validation remain required.
+notes:
+  - The three C270 streams ran concurrently with the D435 aligned pipeline.
+  - Direct root-port topology is retained; no further camera cable or mount change is required for this finding.

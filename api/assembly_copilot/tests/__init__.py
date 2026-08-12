@@ -1,0 +1,1 @@
+"""Assembly copilot scaffold tests."""

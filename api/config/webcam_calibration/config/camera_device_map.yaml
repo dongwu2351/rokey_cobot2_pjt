@@ -1,0 +1,39 @@
+mapping_status: physically_verified_2026_08_07
+layout_version: operator_layout_v2
+usb_topology_version: direct_root_ports_v3
+operator_reference: operator_facing_robot_workspace
+logical_cameras:
+  cam0:
+    role: front_center_upper
+    assigned_inventory_id: fixed_c270_usb_1_5
+    assigned_frame: cam0_optical
+  cam1:
+    role: front_right_upper
+    assigned_inventory_id: fixed_c270_usb_1_1
+    assigned_frame: cam1_optical
+  cam2:
+    role: rear_left_upper
+    assigned_inventory_id: fixed_c270_usb_1_8
+    assigned_frame: cam2_optical
+  wrist_depth:
+    role: gripper_or_wrist_mounted
+    assigned_inventory_id: depth_d435i_207122078284
+    assigned_frame: wrist_depth_optical
+    physical_mount_confirmed: true
+    mount_transform_measured: direct_T_flange_wrist_depth_independent_holdout_accepted
+fixed_external_candidates:
+  - inventory_id: fixed_c270_usb_1_5
+    stable_device_path: /dev/v4l/by-path/pci-0000:00:14.0-usb-0:5:1.0-video-index0
+    assigned_frame: cam0_optical
+  - inventory_id: fixed_c270_usb_1_1
+    stable_device_path: /dev/v4l/by-path/pci-0000:00:14.0-usb-0:1:1.0-video-index0
+    assigned_frame: cam1_optical
+  - inventory_id: fixed_c270_usb_1_8
+    stable_device_path: /dev/v4l/by-path/pci-0000:00:14.0-usb-0:8:1.0-video-index0
+    assigned_frame: cam2_optical
+spare_depth:
+  role: spare_unconnected
+  required: false
+  runtime_enabled: false
+  calibration_required: false
+  connected: false

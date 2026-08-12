@@ -1,0 +1,21 @@
+{
+  "source_root": "../dum_E_project",
+  "legacy_git_commit": "69ade9a6b1f7d58585280b31126d791c28d3beb1",
+  "destination_root": "vendor/legacy_imports/calibration/charuco_board",
+  "assets": [
+    {
+      "source": "vision/board/charuco_a4_5x7_35mm.png",
+      "destination": "charuco_a4_5x7_35mm.png",
+      "expected_sha256": "be4bf9a3db76dfae60eb5127e3d4445c76255c0fcb5cb2f266281bea03142c39",
+      "reason": "Source image identified by physical inspection as the existing A4 5x7 ChArUco board; physical measurements override nominal printed dimensions.",
+      "test": "dum_e_calibration/test_physical_config.py::test_existing_charuco_source_and_measurements"
+    },
+    {
+      "source": "vision/board/charuco_a4_5x7_35mm.pdf",
+      "destination": "charuco_a4_5x7_35mm.pdf",
+      "expected_sha256": "5e8d117d4bdc27ecd166385a0eb9b1b92e1bdae6859158294fbd4dec60b88216",
+      "reason": "Printable source PDF for the physically identified existing board, imported unchanged for provenance only.",
+      "test": "dum_e_calibration/test_physical_config.py::test_existing_charuco_source_and_measurements"
+    }
+  ]
+}

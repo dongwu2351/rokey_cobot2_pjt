@@ -1,0 +1,14 @@
+# tflite-runtime bundled through openWakeWord 0.6.0 is built against the
+# NumPy 1.x C ABI and fails at runtime with NumPy 2.x (`_ARRAY_API not found`).
+numpy>=1.24,<2
+scipy>=1.10,<2
+PyAudio>=0.2.14,<0.3
+openwakeword==0.6.0
+onnxruntime>=1.17,<2
+openai==1.98.0
+websockets>=14,<17
+pydantic>=2.8,<3
+python-dotenv>=1.0,<2
+# Optional local STT backend (set STT_BACKEND=local after installation).
+faster-whisper>=1.2,<2
+matplotlib>=3.7,<4

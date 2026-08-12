@@ -1,0 +1,105 @@
+calibration_id: prompt04_physical_preflight
+observed_at: "2026-08-07T12:52:46+09:00"
+robot_motion_performed: false
+robot_command_or_service_called: false
+camera_frames_captured: true
+physical_calibration_started: false
+
+safety_preconditions:
+  emergency_stop_access: confirmed
+  doosan_safety_limits_enabled: confirmed
+  manual_hand_guiding_only: confirmed
+  fixed_camera_mounts_rigid: confirmed
+  wrist_mount_rigid: confirmed
+  rg2_mounting_unchanged: confirmed
+  tcp_tool_unchanged: confirmed
+  first_robot_motion_authorized: true
+
+robot_read_only_state:
+  joint_state_topic: /dsr01/joint_states
+  message_type: sensor_msgs/msg/JointState
+  publisher: /dsr01/joint_state_broadcaster
+  observed_name_order: [joint_1, joint_2, joint_4, joint_5, joint_3, joint_6]
+
+fixed_camera_candidates:
+  usb_5_1:
+    stable_path: /dev/v4l/by-path/pci-0000:00:14.0-usb-0:5.1:1.0-video-index0
+    logical_role: CAM0_operator_front_center_upper
+    production_profile: {resolution: 1280x720, format: MJPG, fps: 30, crop: none, resize: none}
+    focus: fixed
+    white_balance_automatic: true
+    auto_exposure: aperture_priority
+    photo: data/calibration/prompt04/preflight/usb_5_1.jpg
+    photo_sha256: 2c14096596168415682242ce80b5739190b6bec6036e250c6fd1b48b9fb66173
+  usb_5_2:
+    stable_path: /dev/v4l/by-path/pci-0000:00:14.0-usb-0:5.2:1.0-video-index0
+    logical_role: CAM1_operator_front_right_upper
+    production_profile: {resolution: 1280x720, format: MJPG, fps: 30, crop: none, resize: none}
+    focus: fixed
+    white_balance_automatic: true
+    auto_exposure: aperture_priority
+    photo: data/calibration/prompt04/preflight/usb_5_2.jpg
+    photo_sha256: 1ba0f5058016683f8ae525e7caefc562ad944aecafd3b7fc146d01e859467eb0
+  usb_5_3:
+    stable_path: /dev/v4l/by-path/pci-0000:00:14.0-usb-0:5.3:1.0-video-index0
+    logical_role: CAM2_operator_rear_left_upper
+    production_profile: {resolution: 1280x720, format: MJPG, fps: 30, crop: none, resize: none}
+    focus: fixed
+    white_balance_automatic: true
+    auto_exposure: aperture_priority
+    photo: data/calibration/prompt04/preflight/usb_5_3.jpg
+    photo_sha256: 0f2548ecf79b1967fa4843bc7596155529672c5e528d449ef86d66105fa9177d
+
+wrist_depth:
+  model: Intel RealSense D435I
+  serial: "207122078284"
+  firmware: 5.17.3.10
+  usb_descriptor: "3.2"
+  logical_role: wrist_depth
+  imported_handeye_classification: REUSABLE_PENDING_VALIDATION
+  production_profile:
+    color: {resolution: 640x480, format: RGB8, fps: 30}
+    depth: {resolution: 640x480, format: Z16, fps: 30}
+    alignment: depth_to_color
+    crop: none
+    resize: none
+  production_profile_confirmed: true
+  mount_and_rg2_unchanged: confirmed
+  tcp_tool_unchanged: confirmed
+  runtime_calibration_valid: false
+  invalid_reason: imported_handeye_still_requires_physical_validation
+
+usb_topology:
+  fixed_rgb_host_bus: "001"
+  fixed_rgb_negotiated_speed_mbps: 480
+  fixed_rgb_branch: usb_port_5_hub
+  wrist_depth_host_bus: "002"
+  wrist_depth_negotiated_speed_mbps: 5000
+  wrist_depth_branch: root_port_2
+  target_topology_match: true
+  required_action: run_active_four_camera_simultaneous_stream_benchmark
+
+board_candidates:
+  dictionary: DICT_4X4_50
+  squares: [5, 7]
+  a3_source:
+    path: ../dum_E_project/vision/board/charuco_a3_5x7_52mm.pdf
+    nominal_square_mm: 52
+    nominal_marker_mm: 39
+    sha256: 52d2a332e339463d999370a56322b8748df2587511a215141ebf74bb2de61601
+  a4_source:
+    path: ../dum_E_project/vision/board/charuco_a4_5x7_35mm.pdf
+    nominal_square_mm: 35
+    nominal_marker_mm: 26
+    sha256: 5e8d117d4bdc27ecd166385a0eb9b1b92e1bdae6859158294fbd4dec60b88216
+  selected_source: a4_source
+  measured_square_mm: 34.0
+  measured_marker_mm: 25.0
+  measured_100mm_reference_mm: 95.5
+  measured_print_scale: 0.955
+  flatness: confirmed_flat
+  condition: usable_undamaged
+  rigid_mounting_method: rigid_board_handle_clamped_by_rg2
+  mounting_note: verify_no_flex_or_slip_before_each_robot_pose_capture
+
+preflight_result: READY_FOR_NON_MOTION_INTRINSIC_CAPTURE
